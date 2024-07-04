@@ -73,7 +73,7 @@ export default function Home() {
             maxHeight={300}
             labelField="label"
             valueField="value"
-            placeholder="Select item"
+            placeholder="Selecione a categoria"
             searchPlaceholder="Search..."
             value={value}
             onChange={item => {
@@ -106,24 +106,34 @@ export default function Home() {
                  textAlignVertical="top"
         />
 
-     <View style={styles.container}>
-      <Button title="Selecionar uma imagem" onPress={pickImage} />
-      {selectedImage && (
-        <Image source={{ uri: selectedImage }} style={styles.image} />
-      )}
 
-      <Button title="Tirar uma foto" onPress={takePicture} />
-      {takenImage && <Image source={{ uri: takenImage }} style={styles.image} />}
-    </View>
+    <View style={styles.rowGeral}>
+        <View style={styles.col} >
+             <Button title="Selecionar imagem" onPress={pickImage} color="#000"  style={styles.buttonBlack2}/>
+              {selectedImage && (
+                           <Image source={{ uri: selectedImage }} style={styles.image} />
+                         )}
 
+        </View>
+       <View style={styles.col} >
+           <Button title="Tirar uma foto" onPress={takePicture} color="#000"  style={styles.buttonBlack2}   />
+              {takenImage && <Image source={{ uri: takenImage }} style={styles.image} />}
+
+       </View>
+      </View>
       <View style={styles.buttonBlack}>
         <Button
-          title="Cadastrar"
-          color="#000"
-        />
+         title="Cadastrar"
+         color="#000"
+         />
       </View>
+  </View>
 
-      </View>
+
+
+
+
+
     </>
   );
 }
@@ -135,9 +145,36 @@ const styles = StyleSheet.create({
     padding: 24,
   },
 
+  buttonBlack2: {
+
+  },
+  rowGeral: {
+    flexDirection: 'row',
+    marginTop: 16,
+    justifyContent: 'space-between',
+  },
+  image: {
+    width: 150,
+    height: 150,
+    margin: 10,
+
+  },
+
+  btnImagens: {
+  margin: 5,
+
+  },
+
+  col: {
+    width: '49%',
+
+  },
+
   buttonBlack: {
     marginTop: 16,
   },
+
+
   inputsJunto: {
      flexDirection: 'row',
      justifyContent: 'space-between',
@@ -145,12 +182,7 @@ const styles = StyleSheet.create({
 
    },
 
-  image: {
-    width: 100,
-    height: 100,
-    marginTop: 20,
-    resizeMode: 'cover',
-  },
+
   inputSeparado: {
       width: '45%',
       padding: 6,
